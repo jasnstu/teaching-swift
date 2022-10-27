@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n6Q-6X-dLo">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="FbB-1J-H2h">
+            <objects>
+                <navigationController id="n6Q-6X-dLo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lZ6-vG-Py9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xwx-cY-vqk" kind="relationship" relationship="rootViewController" id="fpy-Rg-l5f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bE5-mZ-u9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-921" y="422"/>
+        </scene>
+        <!--My View Controller-->
+        <scene sceneID="odq-aH-asD">
+            <objects>
+                <viewController id="xwx-cY-vqk" customClass="MyViewController" customModule="Teaching_UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EU5-kw-oUz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwv-TX-GSx">
+                                <rect key="frame" x="141" y="194" width="93" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-MW-dHB">
+                                <rect key="frame" x="110.5" y="462" width="154" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add to the Label!"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="xwx-cY-vqk" eventType="touchUpInside" id="XkT-aN-thh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CbX-8h-ieO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qwv-TX-GSx" firstAttribute="top" secondItem="CbX-8h-ieO" secondAttribute="top" constant="150" id="4eT-7W-VKW"/>
+                            <constraint firstItem="qwv-TX-GSx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CbX-8h-ieO" secondAttribute="leading" constant="10" id="G3O-KP-8Gj"/>
+                            <constraint firstItem="qwv-TX-GSx" firstAttribute="centerX" secondItem="EU5-kw-oUz" secondAttribute="centerX" id="Gfo-UO-v4J"/>
+                            <constraint firstItem="VZ1-MW-dHB" firstAttribute="centerX" secondItem="EU5-kw-oUz" secondAttribute="centerX" id="TLu-cR-cuB"/>
+                            <constraint firstItem="CbX-8h-ieO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qwv-TX-GSx" secondAttribute="trailing" constant="10" id="v8j-bq-k3y"/>
+                            <constraint firstItem="VZ1-MW-dHB" firstAttribute="top" secondItem="qwv-TX-GSx" secondAttribute="bottom" constant="247.5" id="yYA-xv-fOz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gTa-UO-5Lm"/>
+                    <connections>
+                        <outlet property="label" destination="qwv-TX-GSx" id="K0f-9l-t6l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqM-gg-01r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="397"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
