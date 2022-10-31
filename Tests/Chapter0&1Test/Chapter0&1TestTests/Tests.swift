@@ -12,7 +12,7 @@ import XCTest
 
 final class TestingDonny: XCTestCase {
 
-    /// For this test, create a base Shape class which adopts the CentimeterShape protocol but returns 0 for the area,
+    /// For this test, create a base Shape class which adopts the `CentimeterShape` protocol but returns 0 for the area,
     /// because it doesn't make sense otherwise at this point
     func test_1() {
 //        let sut =
@@ -20,7 +20,7 @@ final class TestingDonny: XCTestCase {
     }
 
     /// For this test, create a Shape class which inherites from your Shape created in test 1.  This object should also
-    /// adopt the CentimeterTriangle protcol
+    /// adopt the `CentimeterTriangle` protcol
     func test_2() {
         //        let sut =
         //        StuTestObject.test_basicTriangle(sut)
