@@ -12,18 +12,21 @@ import XCTest
  * Multiline inline comment (old, objective-c style)
  */
 
+// ^^^^ DON'T USE THAT ONE ^^^^
 
 // MARK: Pramga Mark
 
 // MARK: - Pragma Mark w/ line
 
-let constant = 1
-var variable = 1
+// MARK: Basic Types
+
+let constant = 1 // can't change
+var variable = 1 // can change
 
 variable += 1
 
-var floating = 2.0
-var floatingFloat: Float = 2.0
+var floating = 2.0 // int by default
+var floatingFloat: Float = 2.0 // specify if needing other types
 var isSomething: Bool = true
 var string = "string"
 var multilineString = """
@@ -31,18 +34,20 @@ var multilineString = """
     on multiple lines
 """
 
-struct Structure {
+// MARK: Complex Types
+
+struct Structure { // Capital Name to designate type declaration
     var title: String
 }
 
-let myStructure = Structure(title: "Title")
+let myStructure = Structure(title: "Title") // default init provided on structs
 
 print(myStructure.title)
-print(myStructure.title, terminator: "")
+print(myStructure.title, terminator: "") // overriding default values
 
 // MARK: - Structure Extension
 
-extension Structure {
+extension Structure { // Types can be extended to add functionality
     func getTitle() -> String {
         return title
     }
@@ -56,15 +61,15 @@ let myStructuresTitle = myStructure.getTitle()
 let myStructuresExtendedTitle = myStructure.getExtendedTitle()
 
 print("enter a number:")
-let enteredNumber = readLine()
-print("You entered \(enteredNumber ?? "")")
+let enteredNumber = readLine() // this will work outside of Playgounds - see Week 2's file
+print("You entered \(enteredNumber ?? "")") // providing default value in case optional is `nil`
 
 class SodaCan {
     var containedFluid: Double = 12
     var isOpened = false
 
 //    init() {
-//        containedFluid = 12
+//        containedFluid = 12 // other way to init than inline
 //    }
 
     convenience init(ounces: Double) {
@@ -90,6 +95,7 @@ struct Value {
     // references by values (direct memory)
 }
 
+/// See Week 2 for a deeper example on class vs struct reference types
 
 class SomeScreen: UIViewController {
 
@@ -124,7 +130,7 @@ func printIntArray(_ array: [Int?], beforeDeleting deletable: Int?) -> [Int] {
     print(array, separator: ",")
 
     if let something = deletable {
-        array.filter({ arrayElement in
+        array.filter({ arrayElement in // High Order Function
             arrayElement != something
         })
     }
@@ -162,6 +168,18 @@ print(optionalArray ?? optionalArray2 ?? [])
 
 
 
+
+enum Flowtypes {
+    case someFlow
+
+    var name: String {
+        switch self {
+        case .someFlow: return ""
+        }
+    }
+
+
+}
 
 
 
@@ -284,11 +302,11 @@ print(dictionary)
 
 
 
-class Animal {
+class Animal { // base class
     var buttHoles: Int
     var legsCount: Int
 
-    init(buttHoles: Int, legCount: Int) {
+    init(buttHoles: Int, legCount: Int) { // init that takes 2 ints
         self.buttHoles = buttHoles
         self.legsCount = legCount
     }
@@ -299,12 +317,12 @@ class Animal {
 }
 
 
-class Dog: Animal {
-    override init(buttHoles: Int = 1, legCount: Int = 4) {
-        super.init(buttHoles: buttHoles, legCount: legCount)
+class Dog: Animal { // inherits from base class
+    override init(buttHoles: Int = 1, legCount: Int = 4) { // has the same signature as the base class, so needs to override the init
+        super.init(buttHoles: buttHoles, legCount: legCount) // call super when overriding init
     }
 
-    override func makeNoise() -> String {
+    override func makeNoise() -> String { // overriding functionality
         "woof"
     }
 }
@@ -324,20 +342,20 @@ protocol Rebellious { // maybe Interface?
     func rebel()
 }
 
-class FrenchDog: Dog, Rebellious {
+class FrenchDog: Dog, Rebellious { // inherits from different class & the new protocol
     var firesStarted: Int
 
-    override init(buttHoles: Int = 1, legCount: Int = 4) {
+    override init(buttHoles: Int = 1, legCount: Int = 4) { // override the init with the same signature
         firesStarted = 0
 
-        super.init(buttHoles: buttHoles, legCount: legCount)
+        super.init(buttHoles: buttHoles, legCount: legCount) // call super when overriding init
     }
 
-    override func makeNoise() -> String {
+    override func makeNoise() -> String { // overriding functionality
         "le woof"
     }
 
-    func rebel() {
+    func rebel() { // not in super-class, so no need to override
         print("RIOT")
     }
 }
@@ -346,7 +364,7 @@ protocol Anarchist: Rebellious {
     var windowsSmashed: Int { get }
 }
 
-class Gator: Animal, Anarchist {
+class Gator: Animal, Anarchist { // inherits from base class
     var windowsSmashed: Int = 0
     var firesStarted: Int = 0
 
@@ -355,23 +373,24 @@ class Gator: Animal, Anarchist {
     }
 }
 
-let loopArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+let loopArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] // literal declaration of array
 
-for thing in loopArray {
+for thing in loopArray { // for each `thing` in the `loopArray`
     print(thing)
 }
 
-for index in 0..<loopArray.count {
+for index in 0..<loopArray.count { // for each index in 0 to less-than-loopArray-items-count
     print(loopArray[index])
 }
 
 var keepLooping = true
 
-while keepLooping {
+while keepLooping { // checks if should run before running
 
 }
 
 repeat {
 
-} while keepLooping
+} while keepLooping // runs loop once before checking if should run again
+
 
